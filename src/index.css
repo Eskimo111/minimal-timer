@@ -1,13 +1,99 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --color-white: #ffffff;
+  --color-light: #ffffff3f;
+  --color-black: #000;
+
+  --transition: all 400ms ease;
+
+  --container-width-lg: 96%;
+  --container-width-md: 96%;
+  --container-width-sm: 96%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+  /*BLUE*/
+  background-image: linear-gradient(
+    45deg,
+    hsl(222deg 88% 29%) 0%,
+    hsl(217deg 89% 30%) 11%,
+    hsl(212deg 90% 31%) 22%,
+    hsl(207deg 91% 31%) 33%,
+    hsl(202deg 93% 32%) 44%,
+    hsl(197deg 93% 33%) 56%,
+    hsl(192deg 94% 34%) 67%,
+    hsl(187deg 95% 35%) 78%,
+    hsl(182deg 97% 36%) 89%,
+    hsl(177deg 98% 36%) 100%
+  );
+  /*background-image: linear-gradient(
+    45deg,
+    hsl(310deg 76% 50%) 0%,
+    hsl(311deg 79% 55%) 26%,
+    hsl(311deg 81% 60%) 39%,
+    hsl(312deg 83% 65%) 50%,
+    hsl(312deg 85% 71%) 61%,
+    hsl(312deg 87% 76%) 74%,
+    hsl(313deg 90% 81%) 100%
+  );*/
+  /*PINK PASTEL background: rgb(238, 174, 202);
+  background: linear-gradient(
+    0deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );*/
+  font-family: "Lato", sans-serif;
+  color: var(--color-white);
+}
+
+/* ================== GENERAL STYLE ===================*/
+.container {
+  width: var(--container-width-lg);
+  height: 100vh;
+  margin: auto auto;
+  position: relative;
+}
+.btn-custom {
+  width: 3.25rem;
+  height: 3.25rem;
+  background: var(--color-light);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-white);
+  padding-top: 3px;
+  padding-left: 1px;
+}
+
+input {
+  color: var(--color-white);
+  background: var(--color-light);
+  border-radius: 0.25rem;
+  width: 5rem;
+  padding: 0.75rem 1rem;
+  margin: 0 1rem;
+}
+input:focus-visible {
+  outline: none;
 }

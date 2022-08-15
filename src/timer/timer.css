@@ -1,0 +1,44 @@
+.timer__task {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 300;
+}
+.timer__countdown-clock {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timer__countdown-clock p {
+  font-size: 5rem;
+  font-weight: 300;
+}
+
+.timer__button-group {
+  display: flex;
+  gap: 2rem;
+  position: absolute;
+  bottom: 6rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  flex-flow: wrap;
+  justify-content: center;
+  row-gap: 0.75rem;
+}
+
+.timer__button-group hr {
+  flex-basis: 100%;
+  height: 0;
+  margin: 0;
+  border: 0;
+}
+
+.break-btn {
+  width: 4.5rem;
+  height: 2.4rem;
+  border-radius: 0.25rem;
+}
