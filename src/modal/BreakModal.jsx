@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import "./modal.css";
+import { RiCupFill } from "react-icons/ri";
+import "./breakmodal.css";
 
-const Modal = (props) => {
+const BreakModal = (props) => {
   const [breakTime, setBreakTime] = useState(5);
 
   const handleChange = (event) => {
@@ -18,22 +19,24 @@ const Modal = (props) => {
       {props.isShowing && (
         <div className="modal" id={props.id}>
           <div className="modal-body">
+            <p onClick={() => props.onHide()}>x</p>
             <form onSubmit={() => handleSubmit()}>
               <p>
                 Have a break for
                 <input
                   type="number"
+                  min="1"
+                  max="1000"
                   value={breakTime}
                   onChange={(event) => handleChange(event)}
                   required
                 />
-                minute
+                minute(s)
               </p>
               <div className="group-btn">
-                <button className="btn-modal" onClick={() => props.onHide()}>
-                  Cancel
+                <button className="btn-square">
+                  <RiCupFill size={22} />
                 </button>
-                <button className="btn-modal">Break</button>
               </div>
             </form>
           </div>
@@ -43,4 +46,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default BreakModal;

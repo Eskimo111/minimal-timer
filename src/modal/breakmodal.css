@@ -1,0 +1,15 @@
+.modal-body > form > p {
+  margin: 1.25rem 0;
+}
+
+.modal-body > p {
+  text-align: right;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.group-btn {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

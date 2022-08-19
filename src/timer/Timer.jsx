@@ -2,20 +2,24 @@ import React, { useEffect, useState } from "react";
 import { FaPause, FaPlay } from "react-icons/fa";
 import { RiCupFill } from "react-icons/ri";
 import { VscRefresh } from "react-icons/vsc";
-import Modal from "../modal/Modal";
-
+import BreakModal from "../modal/BreakModal";
+import alarm from "../asset/sounds/alarm.mp3";
 import "./timer.css";
+import Clock from "./Clock";
 
 const defaultTime = {
   second: 0,
   minute: 25,
 };
 
+const audio = new Audio(alarm);
+
 const Timer = () => {
   const [task, setTask] = useState("Working");
   const [second, setSecond] = useState(defaultTime.second);
   const [minute, setMinute] = useState(defaultTime.minute);
-  const [modalShow, setModalShow] = React.useState(false);
+  const [breakModalShow, setBreakModalShow] = useState(false);
+  const [addTaskModalShow, setAddTaskModalShow] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
 
   useEffect(() => {
@@ -31,7 +35,12 @@ const Timer = () => {
     else if (minute > 0) {
       setMinute(minute - 1);
       setSecond(59);
-    }
+    } else ringBell();
+  }
+
+  function ringBell() {
+    audio.play();
+    setIsPaused(true);
   }
 
   function setTimer(minute) {
@@ -43,23 +52,21 @@ const Timer = () => {
   return (
     <>
       <div className="timer__task">{task}</div>
-      <div className="timer__countdown-clock">
-        <p>
-          {minute}:{second > 9 ? second : `0${second}`}
-        </p>
-      </div>
+
+      <Clock minute={minute} second={second} />
+
       <div className="timer__button-group">
         {isPaused ? (
-          <button className="btn-custom" onClick={() => setIsPaused(false)}>
+          <button className="btn-circle" onClick={() => setIsPaused(false)}>
             <FaPlay size={16}></FaPlay>
           </button>
         ) : (
-          <button className="btn-custom" onClick={() => setIsPaused(true)}>
+          <button className="btn-circle" onClick={() => setIsPaused(true)}>
             <FaPause size={16}></FaPause>
           </button>
         )}
         <button
-          className="btn-custom"
+          className="btn-circle"
           onClick={() => {
             setSecond(defaultTime.second);
             setMinute(defaultTime.minute);
@@ -70,16 +77,14 @@ const Timer = () => {
           <VscRefresh size={22} />
         </button>
         <hr></hr>
-        <button
-          className="btn-custom break-btn"
-          onClick={() => setModalShow(true)}
-        >
+        <button className="btn-square" onClick={() => setBreakModalShow(true)}>
           <RiCupFill size={22}></RiCupFill>
         </button>
       </div>
-      <Modal
-        isShowing={modalShow}
-        onHide={() => setModalShow(false)}
+
+      <BreakModal
+        isShowing={breakModalShow}
+        onHide={() => setBreakModalShow(false)}
         setTimer={(minute) => setTimer(minute)}
         setTask={(task) => setTask(task)}
       />
