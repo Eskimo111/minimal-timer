@@ -1,7 +1,8 @@
-#add-task-btn {
+#login-btn {
   width: 2.25rem;
   height: 2.25rem;
   color: var(--color-white);
   position: absolute;
   top: 1rem;
+  right: 1rem;
 }

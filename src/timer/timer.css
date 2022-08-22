@@ -37,4 +37,14 @@
   border: 0;
 }
 
+.toggle {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
 
+.toggle:hover {
+  cursor: pointer;
+  bottom: 3.1rem;
+}

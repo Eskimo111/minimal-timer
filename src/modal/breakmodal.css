@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.modal-body input {
+  margin: 0 1rem;
+}
+
 .group-btn {
   display: flex;
   justify-content: center;

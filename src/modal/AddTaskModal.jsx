@@ -24,17 +24,19 @@ const AddTaskModal = (props) => {
       {props.isShowing && (
         <div className="modal" id={props.id}>
           <div className="modal-body">
+            <h2>Add a task</h2>
             <form onSubmit={() => handleSubmit()}>
-              <label>
-                Task name:
+              <div className="form-row">
+                <label>Task name:</label>
                 <input
                   type="text"
+                  size="10"
                   value={taskName}
                   onChange={(event) => handleChangeTaskName(event)}
                 />
-              </label>
-              <label>
-                Task duration:
+              </div>
+              <div className="form-row">
+                <label>Task duration: </label>
                 <input
                   type="number"
                   min="1"
@@ -42,8 +44,7 @@ const AddTaskModal = (props) => {
                   value={taskDuration}
                   onChange={(event) => handleChangeTaskDuration(event)}
                 />
-                minute(s)
-              </label>
+              </div>
               <div className="group-btn">
                 <button className="btn-square" onClick={() => props.onHide()}>
                   Cancel
