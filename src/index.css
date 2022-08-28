@@ -9,8 +9,12 @@
 
 :root {
   --color-white: #ffffff;
-  --color-light: #ffffff3f;
+  --color-light: rgba(255, 255, 255, 0.3);
   --color-black: #000;
+
+  --glass-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.25);
+  --glass-blur: blur(4.5px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
 
   --transition: all 400ms ease;
 
@@ -35,7 +39,7 @@ input::-webkit-inner-spin-button {
 
 body {
   /*BLUE*/
-  background-image: linear-gradient(
+  /*background-image: linear-gradient(
     45deg,
     hsl(222deg 88% 29%) 0%,
     hsl(217deg 89% 30%) 11%,
@@ -47,7 +51,7 @@ body {
     hsl(187deg 95% 35%) 78%,
     hsl(182deg 97% 36%) 89%,
     hsl(177deg 98% 36%) 100%
-  );
+  );*/
   /*background-image: linear-gradient(
     45deg,
     hsl(310deg 76% 50%) 0%,
@@ -64,8 +68,30 @@ body {
     rgba(238, 174, 202, 1) 0%,
     rgba(148, 187, 233, 1) 100%
   );*/
+  background-size: 300% 300%;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(59, 173, 227, 1) 0%,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(152, 68, 183, 1) 51%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  animation: movingBg 20s ease infinite;
+
   font-family: "Lato", sans-serif;
   color: var(--color-white);
+}
+
+@keyframes movingBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* ================== GENERAL STYLE ===================*/
@@ -75,21 +101,25 @@ body {
   margin: auto auto;
   position: relative;
 }
+
+.btn {
+  color: var(--color-white);
+  background: var(--color-light);
+  cursor: pointer;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+}
+
 .btn-circle {
   width: 3.25rem;
   height: 3.25rem;
-  background: var(--color-light);
   border-radius: 50%;
-  cursor: pointer;
-  color: var(--color-white);
   padding-top: 3px;
   padding-left: 1px;
 }
 
 .btn-square {
-  cursor: pointer;
-  color: var(--color-white);
-  background: var(--color-light);
   width: 4.5rem;
   height: 2.4rem;
   border-radius: 0.25rem;

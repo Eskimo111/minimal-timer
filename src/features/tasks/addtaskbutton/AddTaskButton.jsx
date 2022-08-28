@@ -1,12 +1,12 @@
 import React from "react";
 import { IoMdAdd } from "react-icons/io";
-import "./tasklist.css";
+import "./taskbutton.css";
 
-const TaskList = (props) => {
+const AddTaskButton = (props) => {
   return (
     <>
       <button
-        className="btn-circle"
+        className="btn btn-circle"
         id="add-task-btn"
         onClick={() => props.openModal()}
       >
@@ -16,4 +16,4 @@ const TaskList = (props) => {
   );
 };
 
-export default TaskList;
+export default AddTaskButton;

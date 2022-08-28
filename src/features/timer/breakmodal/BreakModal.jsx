@@ -9,8 +9,7 @@ const BreakModal = (props) => {
     setBreakTime(event.target.value);
   };
   const handleSubmit = (event) => {
-    props.setTimer(breakTime);
-    props.setTask("Break");
+    props.setTimer("Break", breakTime);
     props.onHide();
     event.preventDefault();
   };
@@ -34,7 +33,7 @@ const BreakModal = (props) => {
                 minute(s)
               </p>
               <div className="group-btn">
-                <button className="btn-square">
+                <button className="btn btn-square">
                   <RiCupFill size={22} />
                 </button>
               </div>

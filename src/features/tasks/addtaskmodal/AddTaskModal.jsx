@@ -46,10 +46,13 @@ const AddTaskModal = (props) => {
                 />
               </div>
               <div className="group-btn">
-                <button className="btn-square" onClick={() => props.onHide()}>
+                <button
+                  className="btn btn-square"
+                  onClick={() => props.onHide()}
+                >
                   Cancel
                 </button>
-                <button className="btn-square">Set Timer</button>
+                <button className="btn btn-square">Set Timer</button>
               </div>
             </form>
           </div>

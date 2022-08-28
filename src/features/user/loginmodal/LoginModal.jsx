@@ -41,10 +41,13 @@ const LoginModal = (props) => {
                 />
               </div>
               <div className="group-btn">
-                <button className="btn-square" onClick={() => props.onHide()}>
+                <button
+                  className="btn btn-square"
+                  onClick={() => props.onHide()}
+                >
                   Cancel
                 </button>
-                <button className="btn-square">Login</button>
+                <button className="btn btn-square">Login</button>
               </div>
             </form>
           </div>

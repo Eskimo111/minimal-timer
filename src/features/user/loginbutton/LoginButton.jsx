@@ -1,12 +1,12 @@
 import React from "react";
 import { FaUser } from "react-icons/fa";
-import "./user.css";
+import "../user.css";
 
 const LoginButton = (props) => {
   return (
     <>
       <button
-        className="btn-circle"
+        className="btn btn-circle"
         id="login-btn"
         onClick={() => props.openModal()}
       >
