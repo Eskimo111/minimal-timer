@@ -4,6 +4,7 @@ const initialState = {
   taskname: "Working",
   session: 25,
   timeLeft: 1500,
+  isPaused: true,
 };
 
 export const timerSlice = createSlice({
@@ -21,9 +22,13 @@ export const timerSlice = createSlice({
     refreshTimer: (state) => {
       state.timeLeft = state.session * 60;
     },
+    togglePause: (state) => {
+      state.isPaused = !state.isPaused;
+    },
   },
 });
 
-export const { refreshTimer, updateTimeLeft, setTimer } = timerSlice.actions;
+export const { refreshTimer, updateTimeLeft, setTimer, togglePause } =
+  timerSlice.actions;
 
 export default timerSlice.reducer;

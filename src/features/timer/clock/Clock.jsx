@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateTimeLeft } from "../timerSlice";
+import { togglePause, updateTimeLeft } from "../timerSlice";
 import alarm from "../../../asset/sounds/alarm.mp3";
 const audio = new Audio(alarm);
 
 const Clock = (props) => {
   const timeLeft = useSelector((state) => state.timer.timeLeft);
+  const isPaused = useSelector((state) => state.timer.isPaused);
   const dispatch = useDispatch();
   const minute = Math.floor(timeLeft / 60);
   const second = timeLeft % 60;
 
   useEffect(() => {
-    if (!timeLeft) return;
+    if (!timeLeft) return () => ringBell();
     const timerId = setInterval(() => {
-      if (props.isPaused) return;
+      if (isPaused) return;
       dispatch(updateTimeLeft());
     }, 1000);
     return () => clearInterval(timerId);
@@ -21,7 +22,7 @@ const Clock = (props) => {
 
   function ringBell() {
     audio.play();
-    props.setIsPaused(true);
+    if (!isPaused) dispatch(togglePause);
   }
   return (
     <div className="timer__countdown-clock">

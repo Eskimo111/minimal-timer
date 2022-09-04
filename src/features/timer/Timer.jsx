@@ -6,52 +6,48 @@ import { IoMdArrowDropup } from "react-icons/io";
 
 import BreakModal from "../timer/breakmodal/BreakModal";
 import Clock from "./clock/Clock";
-import AddTaskButton from "../tasks/addtaskbutton/AddTaskButton";
-import AddTaskModal from "features/tasks/addtaskmodal/AddTaskModal";
-
-import LoginButton from "features/user/loginbutton/LoginButton";
-import LoginModal from "features/user/loginmodal/LoginModal";
 
 import "./timer.css";
 import alarm from "../../asset/sounds/alarm.mp3";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setTimer, refreshClock, refreshTimer } from "../timer/timerSlice";
+import {
+  setTimer,
+  refreshClock,
+  refreshTimer,
+  togglePause,
+} from "../timer/timerSlice";
 
 const audio = new Audio(alarm);
 
 const Timer = () => {
   const taskName = useSelector((state) => state.timer.taskname);
   const session = useSelector((state) => state.timer.session);
+  const isPaused = useSelector((state) => state.timer.isPaused);
   const dispatch = useDispatch();
 
   const [breakModalShow, setBreakModalShow] = useState(false);
   const [buttonGroupShow, setButtonGroupShow] = useState(true);
-  const [isPaused, setIsPaused] = useState(true);
 
-  console.log("rendered");
   return (
     <>
       <div className="timer__task">{taskName}</div>
 
-      <Clock
-        isPaused={isPaused}
-        setIsPaused={(status) => setIsPaused(status)}
-      />
+      <Clock />
 
       {buttonGroupShow && (
         <div className="timer__button-group">
           {isPaused ? (
             <button
               className="btn btn-circle"
-              onClick={() => setIsPaused(false)}
+              onClick={() => dispatch(togglePause())}
             >
               <FaPlay size={16}></FaPlay>
             </button>
           ) : (
             <button
               className="btn btn-circle"
-              onClick={() => setIsPaused(true)}
+              onClick={() => dispatch(togglePause())}
             >
               <FaPause size={16}></FaPause>
             </button>
@@ -60,7 +56,7 @@ const Timer = () => {
             className="btn btn-circle"
             onClick={() => {
               dispatch(refreshTimer());
-              setIsPaused(true);
+              if (!isPaused) dispatch(togglePause());
             }}
           >
             <VscRefresh size={22} />
@@ -92,7 +88,7 @@ const Timer = () => {
               session: session,
             })
           );
-          setIsPaused(true);
+          if (!isPaused) dispatch(togglePause());
         }}
       />
     </>

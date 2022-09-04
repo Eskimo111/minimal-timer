@@ -4,5 +4,6 @@
   color: var(--color-white);
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 0;
+  padding: 0.5rem;
 }

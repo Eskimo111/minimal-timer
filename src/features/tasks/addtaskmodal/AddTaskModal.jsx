@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTaskAsync, addTaskList } from "../tasksSlice";
 import "./addtaskmodal.css";
 
 const AddTaskModal = (props) => {
   const [taskName, setTaskName] = useState("");
   const [taskDuration, setTaskDuration] = useState(0);
+  const userId = useSelector((state) => state.user.userInfo.id);
+  const isLogin = useSelector((state) => state.user.isLogin);
+  const dispatch = useDispatch();
 
   const handleChangeTaskName = (event) => {
     setTaskName(event.target.value);
@@ -14,8 +19,25 @@ const AddTaskModal = (props) => {
   };
 
   const handleSubmit = (event) => {
-    props.setTimer(taskDuration);
-    props.setTask(taskName);
+    if (isLogin) {
+      dispatch(
+        addTaskAsync({
+          userId: userId,
+          name: taskName,
+          duration: taskDuration * 60,
+          status: 0,
+        })
+      );
+    } else {
+      dispatch(
+        addTaskList({
+          name: taskName,
+          duration: taskDuration * 60,
+          status: 0,
+        })
+      );
+    }
+
     props.onHide();
     event.preventDefault();
   };

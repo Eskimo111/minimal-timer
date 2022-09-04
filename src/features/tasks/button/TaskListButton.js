@@ -1,19 +1,19 @@
 import React from "react";
-import { IoMdAdd } from "react-icons/io";
+import { FaListUl } from "react-icons/fa";
 import "./taskbutton.css";
 
-const AddTaskButton = (props) => {
+const TaskListButton = (props) => {
   return (
     <>
       <button
         className="btn btn-circle"
-        id="add-task-btn"
+        id="tasklist-btn"
         onClick={() => props.openModal()}
       >
-        <IoMdAdd size={22} />
+        <FaListUl size={18} />
       </button>
     </>
   );
 };
 
-export default AddTaskButton;
+export default TaskListButton;

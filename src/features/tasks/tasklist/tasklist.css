@@ -1,0 +1,67 @@
+.tasklist {
+  position: absolute;
+  top: 1rem;
+  width: 25%;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+  background: var(--color-light);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+}
+
+.tasklist__header {
+  display: flex;
+  padding: 0;
+  gap: 0.25rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.tasklist__header h3 {
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.tasklist__header p {
+  position: absolute;
+  right: 0.5rem;
+  top: 1rem;
+  font-style: italic;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.task-item {
+  padding: 0.75rem 1rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.active {
+  background: var(--color-light);
+}
+
+.task-item__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.task-item__left p {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.task-item__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  font-weight: 300;
+}

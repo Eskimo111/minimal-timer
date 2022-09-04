@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { RiCupFill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { setTimer } from "../timerSlice";
 import "./breakmodal.css";
 
 const BreakModal = (props) => {
   const [breakTime, setBreakTime] = useState(5);
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     setBreakTime(event.target.value);
   };
   const handleSubmit = (event) => {
-    props.setTimer("Break", breakTime);
+    //props.setTimer("Break", breakTime);
+    dispatch(setTimer({ taskname: "Break", session: breakTime }));
     props.onHide();
     event.preventDefault();
   };

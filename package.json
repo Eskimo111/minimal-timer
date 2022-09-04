@@ -3,6 +3,7 @@
   "name": "minimal-timer",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080/pomodoroTimer/api/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
@@ -12,7 +13,9 @@
     "@types/node": "^18.7.8",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -22,6 +25,8 @@
     "react-scripts": "5.0.1",
     "react-use-precision-timer": "^1.0.8",
     "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1",
+    "scss": "^0.2.4",
     "tsc": "^2.0.4",
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
@@ -55,6 +60,7 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0",
-    "lite-server": "^2.6.1"
+    "lite-server": "^2.6.1",
+    "react-router-dom": "^6.3.0"
   }
 }

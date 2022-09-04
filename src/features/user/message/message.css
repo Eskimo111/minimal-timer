@@ -1,0 +1,14 @@
+.message {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--color-light);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+}

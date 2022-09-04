@@ -1,17 +1,16 @@
 import React from "react";
 import { FaUser } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import "../user.css";
+import { login } from "../userSlice";
 
-const LoginButton = (props) => {
+const LoginButton = () => {
   return (
     <>
-      <button
-        className="btn btn-circle"
-        id="login-btn"
-        onClick={() => props.openModal()}
-      >
+      <Link to="/signin" className="btn btn-circle" id="login-btn">
         <FaUser size={16} />
-      </button>
+      </Link>
     </>
   );
 };
